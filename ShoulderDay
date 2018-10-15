@@ -1,0 +1,169 @@
+
+/**
+ * Write a description of class ShoulderDay here.
+ *
+ * @Brandon Corn
+ */
+import java.util.ArrayList;
+import java.util.Random;
+public class ShoulderDay extends SetsReps
+{
+    // instance variables - replace the example below with your own
+    private ArrayList <String> shoulderCompound;
+    private ArrayList <String> shoulderFunctional;
+    private ArrayList <String> userWorkout;
+    
+    public ShoulderDay(){
+        //adds four compound shoulder exercises
+        shoulderCompound = new ArrayList <String>();
+        shoulderCompound.add("Standing One-Arm Dumbbell Press");
+        shoulderCompound.add("Seated Dumbbell Shoulder Press");
+        shoulderCompound.add("Standing Military Press");
+        shoulderCompound.add("Seated Machine Press");
+        //add nine functional shoulder exercises
+        shoulderFunctional = new ArrayList <String>();
+        shoulderFunctional.add("Standing Cable Side-Lateral Raise");
+        shoulderFunctional.add("Seated Dumbbell Side-Lateral Raise");
+        shoulderFunctional.add("Standing Dumbbell Front Raise");
+        shoulderFunctional.add("Standing Cable Front Raise");
+        shoulderFunctional.add("Upright Rows with Bar");
+        shoulderFunctional.add("Cable Reverse Fly");
+        shoulderFunctional.add("Cable Standing Rear Delt Row");
+        shoulderFunctional.add("Seated Dumbbell Rear Lateral Raise");       
+        shoulderFunctional.add("Seated Behind the Neck Military Press");
+        //adds six empty slots for exercises for the user
+        userWorkout = new ArrayList <String>();
+        userWorkout.add("");
+        userWorkout.add("");
+        userWorkout.add("");
+        userWorkout.add("");
+        userWorkout.add("");
+        userWorkout.add("");
+    }
+    //creates a heavy shoulder day workout
+    public void setHeavyShoulderDay(){
+        Random rand = new Random();
+        for(int i = 0; i < userWorkout.size(); i++){
+            if( i== 0 || i == 1){
+                int num = rand.nextInt(4);
+                while (userWorkout.contains(shoulderCompound.get(num))){
+                    num = rand.nextInt(4);
+                }
+                userWorkout.set(i,shoulderCompound.get(num));
+            }
+            else{
+                int num = rand.nextInt(9);
+                while(userWorkout.contains(shoulderFunctional.get(num))){
+                    num = rand.nextInt(9);
+                }
+                userWorkout.set(i,shoulderFunctional.get(num));
+            }
+        }
+    }
+    //creates shoulder day workout with high volume and reps
+    public void setVolumeShoulderDay(){
+        Random rand = new Random();
+        for(int i = 0; i < userWorkout.size(); i++){
+            if( i== 0 || i == 2){
+                int num = rand.nextInt(4);
+                while (userWorkout.contains(shoulderCompound.get(num))){
+                    num = rand.nextInt(4);
+                }
+                userWorkout.set(i,shoulderCompound.get(num));
+            }
+            else if(i == 5){
+                int num = rand.nextInt(9);
+                while (userWorkout.contains(shoulderFunctional.get(num))){
+                    num = rand.nextInt(9);
+                }
+                userWorkout.set(i,shoulderFunctional.get(num));
+            }
+            else{
+                /*
+                int num = rand.nextInt(9);
+                while(userWorkout.contains(shoulderFunctional.get(num))){
+                    num = rand.nextInt(9);
+                }
+                userWorkout.set(i,shoulderFunctional.get(num));
+                */
+                hitAllDelts(userWorkout,i);
+                
+            }
+        }
+    }
+    //creates shoulder day workout thats heavy and has volume
+    public void setRandomShoulderDay(){
+        Random rand = new Random();
+        for(int i = 0; i < userWorkout.size(); i++){
+            if( i== 0 || i == 3){
+                int num = rand.nextInt(4);
+                while (userWorkout.contains(shoulderCompound.get(num))){
+                    num = rand.nextInt(4);
+                }
+                userWorkout.set(i,shoulderCompound.get(num));
+            }
+            else{
+                int num = rand.nextInt(9);
+                while(userWorkout.contains(shoulderFunctional.get(num))){
+                    num = rand.nextInt(9);
+                }
+                userWorkout.set(i,shoulderFunctional.get(num));
+            }
+        }
+    }
+    //makes sure at least one exercise for each part of shoulder
+    public void hitAllDelts(ArrayList <String> workout,int x){
+        Random rand = new Random();
+        int num = rand.nextInt(3);
+        if (num == 0){
+            int numFrontDelt = rand.nextInt(2);
+            int numSideDelt = rand.nextInt(3) + 2;
+            int numRearDelt = rand.nextInt(3) + 5;
+            if (!(workout.contains(shoulderFunctional.get(0))) && !(workout.contains(shoulderFunctional.get(1))) && !(workout.contains(shoulderFunctional.get(8)))){
+                workout.set(x,shoulderFunctional.get(numFrontDelt));                
+            }            
+            else if(!(workout.contains(shoulderFunctional.get(2))) && !(workout.contains(shoulderFunctional.get(3))) && workout.contains(shoulderFunctional.get(4))){
+                workout.set(x,shoulderFunctional.get(numSideDelt));
+            }
+            else if (!workout.contains(shoulderFunctional.get(5)) && !(workout.contains(shoulderFunctional.get(6))) && !(workout.contains(shoulderFunctional.get(7)))){
+                workout.set(x,shoulderFunctional.get(numRearDelt));
+            }
+        }
+        else if (num == 1){
+            int numFrontDelt = rand.nextInt(2);
+            int numSideDelt = rand.nextInt(3) + 2;
+            int numRearDelt = rand.nextInt(3) + 5;
+            if (!(workout.contains(shoulderFunctional.get(2))) && !(workout.contains(shoulderFunctional.get(3))) && !(workout.contains(shoulderFunctional.get(4)))){
+                workout.set(x,shoulderFunctional.get(numSideDelt));                
+            }            
+            else if(!(workout.contains(shoulderFunctional.get(0))) && !(workout.contains(shoulderFunctional.get(1))) && workout.contains(shoulderFunctional.get(8))){
+                workout.set(x,shoulderFunctional.get(numFrontDelt));
+            }
+            else if (!workout.contains(shoulderFunctional.get(5)) && !(workout.contains(shoulderFunctional.get(6))) && !(workout.contains(shoulderFunctional.get(7)))){
+                workout.set(x,shoulderFunctional.get(numRearDelt));
+            }
+        }
+        else{
+            int numFrontDelt = rand.nextInt(2);
+            int numSideDelt = rand.nextInt(3) + 2;
+            int numRearDelt = rand.nextInt(3) + 5;
+            if (!(workout.contains(shoulderFunctional.get(5))) && !(workout.contains(shoulderFunctional.get(6))) && !(workout.contains(shoulderFunctional.get(7)))){
+                workout.set(x,shoulderFunctional.get(numRearDelt));                
+            }            
+            else if(!(workout.contains(shoulderFunctional.get(2))) && !(workout.contains(shoulderFunctional.get(3))) && workout.contains(shoulderFunctional.get(4))){
+                workout.set(x,shoulderFunctional.get(numSideDelt));
+            }
+            else if (!workout.contains(shoulderFunctional.get(0)) && !(workout.contains(shoulderFunctional.get(1))) && !(workout.contains(shoulderFunctional.get(8)))){
+                workout.set(x,shoulderFunctional.get(numFrontDelt));
+            }
+        }
+    }
+    
+    public String toString(){
+        return userWorkout.get(0) + " " + userReps.get(0) + System.lineSeparator() + 
+        userWorkout.get(1) + " " + userReps.get(1) + System.lineSeparator() + userWorkout.get(2)
+        + " " + userReps.get(2) + System.lineSeparator() + userWorkout.get(3) + " " + userReps.get(3)
+        + System.lineSeparator() + userWorkout.get(4) + " " + userReps.get(4) + System.lineSeparator()
+        + userWorkout.get(5) + " " + userReps.get(5) + System.lineSeparator();
+    }
+}
