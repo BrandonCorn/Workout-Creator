@@ -1,0 +1,119 @@
+
+/**
+ * Write a description of class tester here.
+ *
+ * Brandon Corn 
+ */
+import java.util.ArrayList;
+import java.util.Random;
+public class LegDay extends SetsReps
+{
+    //instance variables for leg different leg exercises
+    private ArrayList <String> legCompound; 
+    private ArrayList <String> legFunctional;
+    private ArrayList<String> userWorkout;
+    public LegDay(){
+      //adds five leg compound exercises for leg day
+      legCompound = new ArrayList<String>();
+      legCompound.add("Leg Press close feet");
+      legCompound.add("Leg Press wide feet");
+      legCompound.add("Squats");
+      legCompound.add("Front Squats");
+      legCompound.add("Hack Squats");
+      //adds eight functional leg movements for leg day
+      legFunctional = new ArrayList<String>();
+      legFunctional.add("Walking Lunges");
+      legFunctional.add("Leg Extensions");
+      legFunctional.add("Romanian Deadlifts");
+      legFunctional.add("Split Squats");
+      legFunctional.add("Leg Curls");
+      legFunctional.add("Reverse lunges");
+      legFunctional.add("Seated Calf Raises");
+      legFunctional.add("Standing Calf Raises");
+      legFunctional.add("Step ups with dumbbells");
+      //adds six empty slots for exercises for the user
+      userWorkout = new ArrayList <String>();
+      userWorkout.add("");
+      userWorkout.add("");
+      userWorkout.add("");
+      userWorkout.add("");
+      userWorkout.add("");
+      userWorkout.add("");
+    }
+    //creates a heavy leg day workout
+    public void setHeavyLegDay(){
+        Random rand = new Random();
+        for (int i = 0; i < userWorkout.size();i++){
+            if(i == 0 || i == 1){
+                //int 5 b/c there are 5 different compound leg exercises 
+                int num = rand.nextInt(5); 
+                while (userWorkout.contains(legCompound.get(num))){
+                    num = rand.nextInt(5);
+                }
+                userWorkout.set(i,legCompound.get(num));
+            }
+            else{
+                //int 9 because there are 9 different functional leg exercises
+                int num = rand.nextInt(9);
+                while (userWorkout.contains(legFunctional.get(num))){
+                    num = rand.nextInt(9);
+                }
+                userWorkout.set(i,legFunctional.get(num));
+            }
+        }
+    }
+    //creates leg day with lots of volume and reps
+    public void setVolumeLegDay(){
+        Random rand = new Random();
+        for (int i = 0; i < userWorkout.size(); i++){
+            if (i == 1 || i == 2 || i == 5){
+                int num = rand.nextInt(5);
+                while (userWorkout.contains(legCompound.get(num))){
+                    num = rand.nextInt(5);
+                }
+                userWorkout.set(i,legCompound.get(num));
+            }
+            else{
+                int num = rand.nextInt(9);
+                while (userWorkout.contains(legFunctional.get(num))){
+                    num = rand.nextInt(9);
+                }
+                userWorkout.set(i,legFunctional.get(num));
+            }
+        }
+    }
+    //creates a leg day workout thats heavy and has volume
+    public void setRandomLegDay(){
+        Random rand = new Random();
+        for (int i = 0; i < userWorkout.size(); i++){
+            if (i == 1 || i == 3 || i == 5){
+                int num = rand.nextInt(5);
+                while (userWorkout.contains(legCompound.get(num))){
+                    num = rand.nextInt(5);
+                }
+                userWorkout.set(i,legCompound.get(num));
+            }
+            else{
+                int num = rand.nextInt(9);
+                while (userWorkout.contains(legFunctional.get(num))){
+                    num = rand.nextInt(9);
+                }
+                userWorkout.set(i,legFunctional.get(num));
+            }
+        }
+    }
+    
+    public ArrayList<String> getUserWorkout(){
+        return userWorkout;
+    }
+    //returns each exercise on a new line
+    
+    public String toString(){
+        return userWorkout.get(0) + " " + userReps.get(0) + System.lineSeparator() + 
+        userWorkout.get(1) + " " + userReps.get(1) + System.lineSeparator() + userWorkout.get(2)
+        + " " + userReps.get(2) + System.lineSeparator() + userWorkout.get(3) + " " + userReps.get(3)
+        + System.lineSeparator() + userWorkout.get(4) + " " + userReps.get(4) + System.lineSeparator()
+        + userWorkout.get(5) + " " + userReps.get(5) + System.lineSeparator();
+    }
+}
+
