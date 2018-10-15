@@ -1,0 +1,114 @@
+
+/**
+ * 
+ *
+ * @Brandon Corn
+ */
+import java.util.ArrayList;
+import java.util.Random;
+public class ChestDay extends SetsReps
+{
+    // instance variables - replace the example below with your own
+    private ArrayList <String> chestCompound;
+    private ArrayList <String> chestFunctional;
+    private ArrayList <String> userWorkout;
+    
+    //exercises from https://exrx.net/Lists/Directory
+    public ChestDay(){
+        //adds six compound chest exercise for chest day
+        chestCompound = new ArrayList <String>();
+        chestCompound.add("Bench Press");
+        chestCompound.add("Dumbbell Bench Press");
+        chestCompound.add("Incline Bench Press");
+        chestCompound.add("Incline Dumbbell Bench Press");
+        chestCompound.add("Decline Bench Press");
+        chestCompound.add("Machine Chest Press");
+        
+        //adds seven functional chest exercises for chest day
+        chestFunctional = new ArrayList <String>();
+        chestFunctional.add("Dumbbell flyes");
+        chestFunctional.add("Incline Dumbbell Flyes");
+        chestFunctional.add("Low Cable Crossovers");
+        chestFunctional.add("Incline Cable Flyes");
+        chestFunctional.add("Single Arm Cable Flyes");
+        chestFunctional.add("Dumbbell Pullover");
+        chestFunctional.add("Single Arm Machine Chest Press");
+        
+        //adds six empty slots for exercises for the user
+        userWorkout = new ArrayList <String>();
+        userWorkout.add("");
+        userWorkout.add("");
+        userWorkout.add("");
+        userWorkout.add("");
+        userWorkout.add("");
+        userWorkout.add("");
+    }
+    //Creates creates heavy chest day workout
+    public void setHeavyChestDay(){
+        Random rand = new Random();
+        for(int i = 0; i < userWorkout.size(); i++){
+            if( i== 0 || i == 1){
+                int num = rand.nextInt(6);
+                while (userWorkout.contains(chestCompound.get(num))){
+                    num = rand.nextInt(6);
+                }
+                userWorkout.set(i,chestCompound.get(num));
+            }
+            else{
+                int num = rand.nextInt(7);
+                while(userWorkout.contains(chestFunctional.get(num))){
+                    num = rand.nextInt(7);
+                }
+                userWorkout.set(i,chestFunctional.get(num));
+            }
+        }
+    }
+    //Creates chest workout with lots of volume and reps
+    public void setVolumeChestDay(){
+        Random rand = new Random();
+        for(int i = 0; i < userWorkout.size(); i++){
+            if( i== 0 || i == 2 || i == 5){
+                int num = rand.nextInt(6);
+                while (userWorkout.contains(chestCompound.get(num))){
+                    num = rand.nextInt(6);
+                }
+                userWorkout.set(i,chestCompound.get(num));
+            }
+            else{
+                int num = rand.nextInt(7);
+                while(userWorkout.contains(chestFunctional.get(num))){
+                    num = rand.nextInt(7);
+                }
+                userWorkout.set(i,chestFunctional.get(num));
+            }
+        }
+    }
+    //creates leg day thats heavy and has volume
+    public void setRandomChestDay(){
+        Random rand = new Random();
+        for(int i = 0; i < userWorkout.size(); i++){
+            if( i== 1 || i == 3 || i == 5){
+                int num = rand.nextInt(7);
+                while (userWorkout.contains(chestCompound.get(num))){
+                    num = rand.nextInt(7);
+                }
+                userWorkout.set(i,chestCompound.get(num));
+            }
+            else{
+                int num = rand.nextInt(6);
+                while(userWorkout.contains(chestFunctional.get(num))){
+                    num = rand.nextInt(6);
+                }
+                userWorkout.set(i,chestFunctional.get(num));
+            }
+        }
+    }
+    
+    public String toString(){
+        return userWorkout.get(0) + " " + userReps.get(0) + System.lineSeparator() + 
+        userWorkout.get(1) + " " + userReps.get(1) + System.lineSeparator() + userWorkout.get(2)
+        + " " + userReps.get(2) + System.lineSeparator() + userWorkout.get(3) + " " + userReps.get(3)
+        + System.lineSeparator() + userWorkout.get(4) + " " + userReps.get(4) + System.lineSeparator()
+        + userWorkout.get(5) + " " + userReps.get(5) + System.lineSeparator();
+    }
+}
