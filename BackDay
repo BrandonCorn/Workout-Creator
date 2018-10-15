@@ -1,0 +1,110 @@
+
+/**
+ * Write a description of class ShoulderDay here.
+ *
+ * @Brandon Corn
+ */
+import java.util.ArrayList;
+import java.util.Random;
+public class BackDay extends SetsReps
+{
+    // instance variables - replace the example below with your own
+    private ArrayList <String> backVertical;
+    private ArrayList <String> backRows;
+    private ArrayList <String> userWorkout;
+    
+    //exercises from https://exrx.net/Lists/Directory
+    public BackDay(){
+        //adds six back exercises for lats
+        backVertical = new ArrayList <String>();
+        backVertical.add("Pullups");
+        backVertical.add("V-Bar Pulldown");
+        backVertical.add("Close-Grip Lat Pulldown");
+        backVertical.add("Wide-Grip Lat Pulldown");
+        backVertical.add("Rope Straight-Arm Pulldown");
+        backVertical.add("Underhand Cable Pulldown");
+        //adds six back exercises for middle back,lower back, and traps
+        backRows = new ArrayList <String>();
+        backRows.add("Bent-Over Rows");
+        backRows.add("Reverse-Grip Bent-Over Rows");
+        backRows.add("Single-Arm Dumbbell Rows");
+        backRows.add("Seated V-Bar Rows");
+        backRows.add("Seated Wide-Grip Rows");
+        backRows.add("Dumbbell Shrugs");
+        //adds six empty slots for exercises for the user
+        userWorkout = new ArrayList <String>();
+        userWorkout.add("");
+        userWorkout.add("");
+        userWorkout.add("");
+        userWorkout.add("");
+        userWorkout.add("");
+        userWorkout.add("");
+    }
+    //creates heavy back day workout
+    public void setHeavyBackDay(){
+        Random rand = new Random();
+        for(int i = 0; i < userWorkout.size(); i++){
+            if( i== 0 || i == 1 || i == 3){
+                int num = rand.nextInt(6);
+                while (userWorkout.contains(backRows.get(num))){
+                    num = rand.nextInt(6);
+                }
+                userWorkout.set(i,backRows.get(num));
+            }
+            else{
+                int num = rand.nextInt(6);
+                while(userWorkout.contains(backVertical.get(num))){
+                    num = rand.nextInt(6);
+                }
+                userWorkout.set(i,backVertical.get(num));
+            }
+        }
+    }
+    //creates back workout with lots volume and high reps 
+    public void setVolumeBackDay(){
+        Random rand = new Random();
+        for(int i = 0; i < userWorkout.size(); i++){
+            if( i== 0 || i == 2 || i == 4){
+                int num = rand.nextInt(6);
+                while (userWorkout.contains(backRows.get(num))){
+                    num = rand.nextInt(6);
+                }
+                userWorkout.set(i,backRows.get(num));
+            }
+            else{
+                int num = rand.nextInt(6);
+                while(userWorkout.contains(backVertical.get(num))){
+                    num = rand.nextInt(6);
+                }
+                userWorkout.set(i,backVertical.get(num));
+            }
+        }
+    }
+    //creates back day workout thats heavy and has volume
+    public void setRandomBackDay(){
+        Random rand = new Random();
+        for(int i = 0; i < userWorkout.size(); i++){
+            if( i== 0 || i == 2 || i == 5){
+                int num = rand.nextInt(6);
+                while (userWorkout.contains(backRows.get(num))){
+                    num = rand.nextInt(6);
+                }
+                userWorkout.set(i,backRows.get(num));
+            }
+            else{
+                int num = rand.nextInt(6);
+                while(userWorkout.contains(backVertical.get(num))){
+                    num = rand.nextInt(6);
+                }
+                userWorkout.set(i,backVertical.get(num));
+            }
+        }
+    }
+    public String toString(){
+        return userWorkout.get(0) + " " + userReps.get(0) + System.lineSeparator() + 
+        userWorkout.get(1) + " " + userReps.get(1) + System.lineSeparator() + userWorkout.get(2)
+        + " " + userReps.get(2) + System.lineSeparator() + userWorkout.get(3) + " " + userReps.get(3)
+        + System.lineSeparator() + userWorkout.get(4) + " " + userReps.get(4) + System.lineSeparator()
+        + userWorkout.get(5) + " " + userReps.get(5) + System.lineSeparator();
+    }
+}
