@@ -1,18 +1,20 @@
 
 /**
- * Write a description of class tester here.
+ * 
  *
- * Brandon Corn 
+ * @author (your name)
+ * @version (a version number or a date)
  */
 import java.util.ArrayList;
 import java.util.Random;
-public class LegDay extends SetsReps
+public class LegDay extends Workout
 {
     //instance variables for leg different leg exercises
     private ArrayList <String> legCompound; 
     private ArrayList <String> legFunctional;
-    private ArrayList<String> userWorkout;
+    
     public LegDay(){
+      super();
       //adds five leg compound exercises for leg day
       legCompound = new ArrayList<String>();
       legCompound.add("Leg Press close feet");
@@ -31,17 +33,9 @@ public class LegDay extends SetsReps
       legFunctional.add("Seated Calf Raises");
       legFunctional.add("Standing Calf Raises");
       legFunctional.add("Step ups with dumbbells");
-      //adds six empty slots for exercises for the user
-      userWorkout = new ArrayList <String>();
-      userWorkout.add("");
-      userWorkout.add("");
-      userWorkout.add("");
-      userWorkout.add("");
-      userWorkout.add("");
-      userWorkout.add("");
     }
     //creates a heavy leg day workout
-    public void setHeavyLegDay(){
+    public void setHeavyWorkout(){
         Random rand = new Random();
         for (int i = 0; i < userWorkout.size();i++){
             if(i == 0 || i == 1){
@@ -63,7 +57,7 @@ public class LegDay extends SetsReps
         }
     }
     //creates leg day with lots of volume and reps
-    public void setVolumeLegDay(){
+    public void setVolumeWorkout(){
         Random rand = new Random();
         for (int i = 0; i < userWorkout.size(); i++){
             if (i == 1 || i == 2 || i == 5){
@@ -83,7 +77,7 @@ public class LegDay extends SetsReps
         }
     }
     //creates a leg day workout thats heavy and has volume
-    public void setRandomLegDay(){
+    public void setRandomWorkout(){
         Random rand = new Random();
         for (int i = 0; i < userWorkout.size(); i++){
             if (i == 1 || i == 3 || i == 5){
@@ -109,11 +103,9 @@ public class LegDay extends SetsReps
     //returns each exercise on a new line
     
     public String toString(){
-        return userWorkout.get(0) + " " + userReps.get(0) + System.lineSeparator() + 
-        userWorkout.get(1) + " " + userReps.get(1) + System.lineSeparator() + userWorkout.get(2)
-        + " " + userReps.get(2) + System.lineSeparator() + userWorkout.get(3) + " " + userReps.get(3)
-        + System.lineSeparator() + userWorkout.get(4) + " " + userReps.get(4) + System.lineSeparator()
-        + userWorkout.get(5) + " " + userReps.get(5) + System.lineSeparator();
+        return userWorkout.get(0) + System.lineSeparator() + userWorkout.get(1) + System.lineSeparator() + 
+        userWorkout.get(2) + System.lineSeparator() + userWorkout.get(3) + System.lineSeparator() + 
+        userWorkout.get(4) + System.lineSeparator() + userWorkout.get(5) + System.lineSeparator();
     }
 }
 
