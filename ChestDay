@@ -6,15 +6,15 @@
  */
 import java.util.ArrayList;
 import java.util.Random;
-public class ChestDay extends SetsReps
+public class ChestDay extends Workout
 {
     // instance variables - replace the example below with your own
     private ArrayList <String> chestCompound;
     private ArrayList <String> chestFunctional;
-    private ArrayList <String> userWorkout;
     
     //exercises from https://exrx.net/Lists/Directory
     public ChestDay(){
+        super();
         //adds six compound chest exercise for chest day
         chestCompound = new ArrayList <String>();
         chestCompound.add("Bench Press");
@@ -33,18 +33,9 @@ public class ChestDay extends SetsReps
         chestFunctional.add("Single Arm Cable Flyes");
         chestFunctional.add("Dumbbell Pullover");
         chestFunctional.add("Single Arm Machine Chest Press");
-        
-        //adds six empty slots for exercises for the user
-        userWorkout = new ArrayList <String>();
-        userWorkout.add("");
-        userWorkout.add("");
-        userWorkout.add("");
-        userWorkout.add("");
-        userWorkout.add("");
-        userWorkout.add("");
     }
-    //Creates creates heavy chest day workout
-    public void setHeavyChestDay(){
+    //Creates heavy chest day workout
+    public void setHeavyWorkout(){
         Random rand = new Random();
         for(int i = 0; i < userWorkout.size(); i++){
             if( i== 0 || i == 1){
@@ -64,7 +55,7 @@ public class ChestDay extends SetsReps
         }
     }
     //Creates chest workout with lots of volume and reps
-    public void setVolumeChestDay(){
+    public void setVolumeWorkout(){
         Random rand = new Random();
         for(int i = 0; i < userWorkout.size(); i++){
             if( i== 0 || i == 2 || i == 5){
@@ -83,8 +74,8 @@ public class ChestDay extends SetsReps
             }
         }
     }
-    //creates leg day thats heavy and has volume
-    public void setRandomChestDay(){
+    //creates chest day thats heavy and has volume
+    public void setRandomWorkout(){
         Random rand = new Random();
         for(int i = 0; i < userWorkout.size(); i++){
             if( i== 1 || i == 3 || i == 5){
@@ -103,12 +94,10 @@ public class ChestDay extends SetsReps
             }
         }
     }
-    
+       
     public String toString(){
-        return userWorkout.get(0) + " " + userReps.get(0) + System.lineSeparator() + 
-        userWorkout.get(1) + " " + userReps.get(1) + System.lineSeparator() + userWorkout.get(2)
-        + " " + userReps.get(2) + System.lineSeparator() + userWorkout.get(3) + " " + userReps.get(3)
-        + System.lineSeparator() + userWorkout.get(4) + " " + userReps.get(4) + System.lineSeparator()
-        + userWorkout.get(5) + " " + userReps.get(5) + System.lineSeparator();
+        return userWorkout.get(0) + System.lineSeparator() + userWorkout.get(1) + System.lineSeparator() + 
+        userWorkout.get(2) + System.lineSeparator() + userWorkout.get(3) + System.lineSeparator() + 
+        userWorkout.get(4) + System.lineSeparator() + userWorkout.get(5) + System.lineSeparator();
     }
 }
