@@ -1,0 +1,88 @@
+import java.util.ArrayList;
+import java.util.Random;
+public class LegDaySetsReps extends LegDay
+{
+    // instance variables - replace the example below with your own
+    private ArrayList <String> heavyDayCompound;
+    private ArrayList <String> heavyDayFunctional;
+    private ArrayList <String> volumeDay;
+    private ArrayList <String> randomDay;
+
+    
+    public LegDaySetsReps(){
+        super();
+        //4 different variations of rep ranges for heavy day compound lifts
+        heavyDayCompound = new ArrayList <String>();
+        heavyDayCompound.add("4 sets x 8");
+        heavyDayCompound.add("4 sets x 5");
+        heavyDayCompound.add("4 sets x 8,8,6,6");
+        heavyDayCompound.add("4 sets x 8,6,4,4");
+        heavyDayCompound.add("4 sets x 5,5,3,3");
+        //4 different variations of rep ranges for heavy day functional lifts 
+        heavyDayFunctional = new ArrayList <String>();
+        heavyDayFunctional.add("4 sets x 8");
+        heavyDayFunctional.add("4 sets x 10");
+        heavyDayFunctional.add("4 sets x 12,12,8,8");
+        heavyDayFunctional.add("4 sets x 10,10,8,8");
+        //5 different variations of rep ranges for high volume days 
+        volumeDay = new ArrayList <String>();
+        volumeDay.add("4 sets x 15");
+        volumeDay.add("4 sets x 12");
+        volumeDay.add("4 sets x 12,12,10,10");
+        volumeDay.add("4 sets x 15,15,12,12");
+        volumeDay.add("4 sets x 20");
+        //6 different rep ranges for some heavy lifting and high volume
+        randomDay = new ArrayList <String>();
+        randomDay.add("4 sets x 8");
+        randomDay.add("4 sets x 15");
+        randomDay.add("4 sets x 5");
+        randomDay.add("4 sets x 15,15,12,12");
+        randomDay.add("4 sets x 8,8,6,6");
+        randomDay.add("4 sets x 20");
+        
+    }
+    //sets rep range for lifting heavy
+    public void setHeavyDay(){
+        Random rand = new Random();
+        for (int i = 0; i < userReps.size(); i++){
+            if (i == 0 || i ==1){
+                int num = rand.nextInt(5);
+                userReps.set(i,heavyDayCompound.get(num));
+            }
+            else{
+                int num = rand.nextInt(4);
+                userReps.set(i,heavyDayFunctional.get(num));
+            }
+        }
+
+    }
+    //sets rep range for high volume
+    public void setVolumeDay(){
+        Random rand = new Random();
+        for (int i = 0; i < userReps.size(); i++){
+            int num = rand.nextInt(5);
+            userReps.set(i,volumeDay.get(num));
+        }
+    }
+    //FIXME NEEDS TO SET THREE EXERCISES TO HEAVY REPS AND THREE TO HIGH REPS
+    public void setRandomDay(){
+        Random rand = new Random();
+        for (int i = 0; i < userReps.size(); i++){
+            int num = rand.nextInt(6);
+            userReps.set(i,randomDay.get(num));
+        }
+    }
+    
+    public void setSuperSets(){
+        System.out.println("Perform exercises 1 & 2 and 5 & 6 back to back");
+        System.out.println("Rest for 60 seconds between supersets");
+    }
+    
+    public String toString(){
+        return userWorkout.get(0) + " " + userReps.get(0) + System.lineSeparator() + 
+        userWorkout.get(1) + " " + userReps.get(1) + System.lineSeparator() + userWorkout.get(2)
+        + " " + userReps.get(2) + System.lineSeparator() + userWorkout.get(3) + " " + userReps.get(3)
+        + System.lineSeparator() + userWorkout.get(4) + " " + userReps.get(4) + System.lineSeparator()
+        + userWorkout.get(5) + " " + userReps.get(5) + System.lineSeparator();
+    }
+}
