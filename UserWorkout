@@ -1,0 +1,186 @@
+
+/**
+ * Write a description of class tester here.
+ *
+ * @author (your name)
+ * @version (a version number or a date)
+ */
+import java.util.Scanner;
+import java.util.ArrayList;
+public class Workout
+{
+    protected ArrayList<String> userWorkout;
+    protected ArrayList <String> userReps;
+    public Workout(){
+        userWorkout = new ArrayList <String>();
+        userWorkout.add("");
+        userWorkout.add("");
+        userWorkout.add("");
+        userWorkout.add("");
+        userWorkout.add("");
+        userWorkout.add("");
+        userReps = new ArrayList <String>();
+        userReps.add("");
+        userReps.add("");
+        userReps.add("");
+        userReps.add("");
+        userReps.add("");
+        userReps.add("");
+    }
+    //FIXME give a user options to decide what kind of workout they want to do
+    public void Workout(){
+        System.out.println("Welcome to the workout generator");
+        System.out.println("What muscle group would you like to train today?");
+        System.out.println("Enter 1 for legs, 2 for back, 3 for chest, 4 for shoulders, 5 for arms");
+        Scanner sc = new Scanner(System.in);
+        int choice = sc.nextInt();
+        if (choice == 1){
+            System.out.println("Would you like to train heavy, high volume, or a mix of both (Enter 1, 2, or 3)");
+            choice = sc.nextInt();
+            if (choice == 1){
+                LegDaySetsReps legDay = new LegDaySetsReps();
+                legDay.setHeavyWorkout();
+                legDay.setHeavyDay();
+                System.out.println("Here is your workout!");
+                System.out.println("");
+                System.out.println(legDay.toString());
+            }
+            else if (choice == 2){
+                LegDaySetsReps legDay = new LegDaySetsReps();
+                legDay.setVolumeWorkout();
+                legDay.setVolumeDay();
+                System.out.println("Here is your workout!");
+                System.out.println("");
+                System.out.println(legDay.toString());
+            }
+            else{
+                LegDaySetsReps legDay = new LegDaySetsReps();
+                legDay.setRandomWorkout();
+                legDay.setRandomDay();
+                System.out.println("Here is your workout!");
+                System.out.println("");
+                System.out.println(legDay.toString());
+            }
+        }
+        else if (choice == 2){
+            System.out.println("Would you like to train heavy, high volume, or a mix of both (Enter 1, 2, or 3)");
+            choice = sc.nextInt();
+            if (choice == 1){
+                BackDaySetsReps backDay = new BackDaySetsReps();
+                backDay.setHeavyWorkout();
+                backDay.setHeavyDay();
+                System.out.println("Here is your workout!");
+                System.out.println("");
+                System.out.println(backDay.toString());
+            }
+            else if (choice == 2){
+                BackDaySetsReps backDay = new BackDaySetsReps();
+                backDay.setVolumeWorkout();
+                backDay.setVolumeDay();
+                System.out.println("Here is your workout!");
+                System.out.println("");
+                System.out.println(backDay.toString());
+            }
+            else{
+                BackDaySetsReps backDay = new BackDaySetsReps();
+                backDay.setRandomWorkout();
+                backDay.setRandomDay();
+                System.out.println("Here is your workout!");
+                System.out.println("");
+                System.out.println(backDay.toString());
+            }
+        }
+        else if (choice == 3){
+            System.out.println("Would you like to train heavy, high volume, or a mix of both (Enter 1, 2, or 3)");
+            choice = sc.nextInt();
+            if (choice == 1){
+                ChestDaySetsReps chestDay = new ChestDaySetsReps();
+                chestDay.setHeavyWorkout();
+                chestDay.setHeavyDay();
+                System.out.println("Here is your workout!");
+                System.out.println("");
+                System.out.println(chestDay.toString());
+            }
+            else if (choice == 2){
+                ChestDaySetsReps chestDay = new ChestDaySetsReps();
+                chestDay.setVolumeWorkout();
+                chestDay.setVolumeDay();
+                System.out.println("Here is your workout!");
+                System.out.println("");
+                System.out.println(chestDay.toString());
+            }
+            else{
+                ChestDaySetsReps chestDay = new ChestDaySetsReps();
+                chestDay.setRandomWorkout();
+                chestDay.setRandomDay();
+                System.out.println("Here is your workout!");
+                System.out.println("");
+                System.out.println(chestDay.toString());
+            }
+        }
+        else if (choice == 4){
+            System.out.println("Would you like to train heavy, high volume, or a mix of both (Enter 1, 2, or 3)");
+            choice = sc.nextInt();
+            if (choice == 1){
+                ShoulderDaySetsReps shoulderDay = new ShoulderDaySetsReps();
+                shoulderDay.setHeavyWorkout();
+                shoulderDay.setHeavyDay();
+                System.out.println("Here is your workout!");
+                System.out.println("");
+                System.out.println(shoulderDay.toString());
+            }
+            else if (choice == 2){
+                ShoulderDaySetsReps shoulderDay = new ShoulderDaySetsReps();
+                shoulderDay.setVolumeWorkout();
+                shoulderDay.setVolumeDay();
+                System.out.println("Here is your workout!");
+                System.out.println("");
+                System.out.println(shoulderDay.toString());
+            }
+            else{
+                ShoulderDaySetsReps shoulderDay = new ShoulderDaySetsReps();
+                shoulderDay.setRandomWorkout();
+                shoulderDay.setRandomDay();
+                System.out.println("Here is your workout!");
+                System.out.println("");
+                System.out.println(shoulderDay.toString());
+            }
+        }
+        else if (choice == 5){
+            System.out.println("Would you like to train heavy, high volume, or a mix of both (Enter 1, 2, or 3)");
+            choice = sc.nextInt();
+            if (choice == 1){
+                ArmDaySetsReps armDay = new ArmDaySetsReps();
+                armDay.setHeavyWorkout();
+                armDay.setHeavyDay();
+                System.out.println("Here is your workout!");
+                System.out.println("");
+                System.out.println(armDay.toString());
+            }
+            else if (choice == 2){
+                ArmDaySetsReps armDay = new ArmDaySetsReps();
+                armDay.setVolumeWorkout();
+                armDay.setVolumeDay();
+                System.out.println("Here is your workout!");
+                System.out.println("");
+                System.out.println(armDay.toString());
+            }
+            else{
+                ArmDaySetsReps armDay = new ArmDaySetsReps();
+                armDay.setRandomWorkout();
+                armDay.setRandomDay();
+                System.out.println("Here is your workout!");
+                System.out.println("");
+                System.out.println(armDay.toString());
+            }
+        }
+    }
+    
+    public String toString(){
+        return userWorkout.get(0) + " " + userReps.get(0) + System.lineSeparator() + 
+        userWorkout.get(1) + " " + userReps.get(1) + System.lineSeparator() + userWorkout.get(2)
+        + " " + userReps.get(2) + System.lineSeparator() + userWorkout.get(3) + " " + userReps.get(3)
+        + System.lineSeparator() + userWorkout.get(4) + " " + userReps.get(4) + System.lineSeparator()
+        + userWorkout.get(5) + " " + userReps.get(5) + System.lineSeparator();
+    }
+}
