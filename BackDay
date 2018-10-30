@@ -1,20 +1,20 @@
 
 /**
- * Write a description of class ShoulderDay here.
+ * Write a description of class BackDay here.
  *
  * @Brandon Corn
  */
 import java.util.ArrayList;
 import java.util.Random;
-public class BackDay extends SetsReps
+public class BackDay extends Workout
 {
     // instance variables - replace the example below with your own
     private ArrayList <String> backVertical;
     private ArrayList <String> backRows;
-    private ArrayList <String> userWorkout;
-    
+
     //exercises from https://exrx.net/Lists/Directory
     public BackDay(){
+        super();
         //adds six back exercises for lats
         backVertical = new ArrayList <String>();
         backVertical.add("Pullups");
@@ -31,17 +31,9 @@ public class BackDay extends SetsReps
         backRows.add("Seated V-Bar Rows");
         backRows.add("Seated Wide-Grip Rows");
         backRows.add("Dumbbell Shrugs");
-        //adds six empty slots for exercises for the user
-        userWorkout = new ArrayList <String>();
-        userWorkout.add("");
-        userWorkout.add("");
-        userWorkout.add("");
-        userWorkout.add("");
-        userWorkout.add("");
-        userWorkout.add("");
     }
     //creates heavy back day workout
-    public void setHeavyBackDay(){
+    public void setHeavyWorkout(){
         Random rand = new Random();
         for(int i = 0; i < userWorkout.size(); i++){
             if( i== 0 || i == 1 || i == 3){
@@ -61,7 +53,7 @@ public class BackDay extends SetsReps
         }
     }
     //creates back workout with lots volume and high reps 
-    public void setVolumeBackDay(){
+    public void setVolumeWorkout(){
         Random rand = new Random();
         for(int i = 0; i < userWorkout.size(); i++){
             if( i== 0 || i == 2 || i == 4){
@@ -81,7 +73,7 @@ public class BackDay extends SetsReps
         }
     }
     //creates back day workout thats heavy and has volume
-    public void setRandomBackDay(){
+    public void setRandomWorkout(){
         Random rand = new Random();
         for(int i = 0; i < userWorkout.size(); i++){
             if( i== 0 || i == 2 || i == 5){
@@ -100,11 +92,10 @@ public class BackDay extends SetsReps
             }
         }
     }
+    
     public String toString(){
-        return userWorkout.get(0) + " " + userReps.get(0) + System.lineSeparator() + 
-        userWorkout.get(1) + " " + userReps.get(1) + System.lineSeparator() + userWorkout.get(2)
-        + " " + userReps.get(2) + System.lineSeparator() + userWorkout.get(3) + " " + userReps.get(3)
-        + System.lineSeparator() + userWorkout.get(4) + " " + userReps.get(4) + System.lineSeparator()
-        + userWorkout.get(5) + " " + userReps.get(5) + System.lineSeparator();
+        return userWorkout.get(0) + System.lineSeparator() + userWorkout.get(1) + System.lineSeparator() + 
+        userWorkout.get(2) + System.lineSeparator() + userWorkout.get(3) + System.lineSeparator() + 
+        userWorkout.get(4) + System.lineSeparator() + userWorkout.get(5) + System.lineSeparator();
     }
 }
