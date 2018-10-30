@@ -6,14 +6,14 @@
  */
 import java.util.ArrayList;
 import java.util.Random;
-public class ShoulderDay extends SetsReps
+public class ShoulderDay extends Workout
 {
     // instance variables - replace the example below with your own
     private ArrayList <String> shoulderCompound;
     private ArrayList <String> shoulderFunctional;
-    private ArrayList <String> userWorkout;
     
     public ShoulderDay(){
+        super();
         //adds four compound shoulder exercises
         shoulderCompound = new ArrayList <String>();
         shoulderCompound.add("Standing One-Arm Dumbbell Press");
@@ -30,21 +30,13 @@ public class ShoulderDay extends SetsReps
         shoulderFunctional.add("Cable Reverse Fly");
         shoulderFunctional.add("Cable Standing Rear Delt Row");
         shoulderFunctional.add("Seated Dumbbell Rear Lateral Raise");       
-        shoulderFunctional.add("Seated Behind the Neck Military Press");
-        //adds six empty slots for exercises for the user
-        userWorkout = new ArrayList <String>();
-        userWorkout.add("");
-        userWorkout.add("");
-        userWorkout.add("");
-        userWorkout.add("");
-        userWorkout.add("");
-        userWorkout.add("");
+        shoulderFunctional.add("Seated Military Press");
     }
     //creates a heavy shoulder day workout
-    public void setHeavyShoulderDay(){
+    public void setHeavyWorkout(){
         Random rand = new Random();
-        for(int i = 0; i < userWorkout.size(); i++){
-            if( i== 0 || i == 1){
+        for(int i = 0; i < userWorkout.size(); ++i){
+            if( i == 0 || i == 1){
                 int num = rand.nextInt(4);
                 while (userWorkout.contains(shoulderCompound.get(num))){
                     num = rand.nextInt(4);
@@ -61,7 +53,7 @@ public class ShoulderDay extends SetsReps
         }
     }
     //creates shoulder day workout with high volume and reps
-    public void setVolumeShoulderDay(){
+    public void setVolumeWorkout(){
         Random rand = new Random();
         for(int i = 0; i < userWorkout.size(); i++){
             if( i== 0 || i == 2){
@@ -79,20 +71,12 @@ public class ShoulderDay extends SetsReps
                 userWorkout.set(i,shoulderFunctional.get(num));
             }
             else{
-                /*
-                int num = rand.nextInt(9);
-                while(userWorkout.contains(shoulderFunctional.get(num))){
-                    num = rand.nextInt(9);
-                }
-                userWorkout.set(i,shoulderFunctional.get(num));
-                */
                 hitAllDelts(userWorkout,i);
-                
             }
         }
     }
     //creates shoulder day workout thats heavy and has volume
-    public void setRandomShoulderDay(){
+    public void setRandomWorkout(){
         Random rand = new Random();
         for(int i = 0; i < userWorkout.size(); i++){
             if( i== 0 || i == 3){
@@ -103,11 +87,7 @@ public class ShoulderDay extends SetsReps
                 userWorkout.set(i,shoulderCompound.get(num));
             }
             else{
-                int num = rand.nextInt(9);
-                while(userWorkout.contains(shoulderFunctional.get(num))){
-                    num = rand.nextInt(9);
-                }
-                userWorkout.set(i,shoulderFunctional.get(num));
+                hitAllDelts(userWorkout,i);
             }
         }
     }
@@ -122,7 +102,7 @@ public class ShoulderDay extends SetsReps
             if (!(workout.contains(shoulderFunctional.get(0))) && !(workout.contains(shoulderFunctional.get(1))) && !(workout.contains(shoulderFunctional.get(8)))){
                 workout.set(x,shoulderFunctional.get(numFrontDelt));                
             }            
-            else if(!(workout.contains(shoulderFunctional.get(2))) && !(workout.contains(shoulderFunctional.get(3))) && workout.contains(shoulderFunctional.get(4))){
+            else if(!(workout.contains(shoulderFunctional.get(2))) && !(workout.contains(shoulderFunctional.get(3))) && !workout.contains(shoulderFunctional.get(4))){
                 workout.set(x,shoulderFunctional.get(numSideDelt));
             }
             else if (!workout.contains(shoulderFunctional.get(5)) && !(workout.contains(shoulderFunctional.get(6))) && !(workout.contains(shoulderFunctional.get(7)))){
@@ -136,7 +116,7 @@ public class ShoulderDay extends SetsReps
             if (!(workout.contains(shoulderFunctional.get(2))) && !(workout.contains(shoulderFunctional.get(3))) && !(workout.contains(shoulderFunctional.get(4)))){
                 workout.set(x,shoulderFunctional.get(numSideDelt));                
             }            
-            else if(!(workout.contains(shoulderFunctional.get(0))) && !(workout.contains(shoulderFunctional.get(1))) && workout.contains(shoulderFunctional.get(8))){
+            else if(!(workout.contains(shoulderFunctional.get(0))) && !(workout.contains(shoulderFunctional.get(1))) && !workout.contains(shoulderFunctional.get(8))){
                 workout.set(x,shoulderFunctional.get(numFrontDelt));
             }
             else if (!workout.contains(shoulderFunctional.get(5)) && !(workout.contains(shoulderFunctional.get(6))) && !(workout.contains(shoulderFunctional.get(7)))){
@@ -150,7 +130,7 @@ public class ShoulderDay extends SetsReps
             if (!(workout.contains(shoulderFunctional.get(5))) && !(workout.contains(shoulderFunctional.get(6))) && !(workout.contains(shoulderFunctional.get(7)))){
                 workout.set(x,shoulderFunctional.get(numRearDelt));                
             }            
-            else if(!(workout.contains(shoulderFunctional.get(2))) && !(workout.contains(shoulderFunctional.get(3))) && workout.contains(shoulderFunctional.get(4))){
+            else if(!(workout.contains(shoulderFunctional.get(2))) && !(workout.contains(shoulderFunctional.get(3))) && !workout.contains(shoulderFunctional.get(4))){
                 workout.set(x,shoulderFunctional.get(numSideDelt));
             }
             else if (!workout.contains(shoulderFunctional.get(0)) && !(workout.contains(shoulderFunctional.get(1))) && !(workout.contains(shoulderFunctional.get(8)))){
@@ -160,10 +140,8 @@ public class ShoulderDay extends SetsReps
     }
     
     public String toString(){
-        return userWorkout.get(0) + " " + userReps.get(0) + System.lineSeparator() + 
-        userWorkout.get(1) + " " + userReps.get(1) + System.lineSeparator() + userWorkout.get(2)
-        + " " + userReps.get(2) + System.lineSeparator() + userWorkout.get(3) + " " + userReps.get(3)
-        + System.lineSeparator() + userWorkout.get(4) + " " + userReps.get(4) + System.lineSeparator()
-        + userWorkout.get(5) + " " + userReps.get(5) + System.lineSeparator();
+        return userWorkout.get(0) + System.lineSeparator() + userWorkout.get(1) + System.lineSeparator() + 
+        userWorkout.get(2) + System.lineSeparator() + userWorkout.get(3) + System.lineSeparator() + 
+        userWorkout.get(4) + System.lineSeparator() + userWorkout.get(5) + System.lineSeparator();
     }
 }
